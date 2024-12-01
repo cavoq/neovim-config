@@ -16,6 +16,12 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+-- go lsp
+require'lspconfig'.gopls.setup{
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod" },
+  root_dir = require'lspconfig'.util.root_pattern("go.mod", ".git"),
+}
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,
